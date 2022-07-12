@@ -13,14 +13,21 @@ def move_backward():
 
 
 def turn_counter_clockwise():
-    tim.left(10)
+    tim.setheading(tim.heading()+10)
 
 
 def turn_clockwise():
-    tim.right(10)
+    tim.setheading(tim.heading()-10)
 
 
-actions = {'w': move_forward, 's': move_backward, 'a': turn_counter_clockwise, 'd': turn_clockwise}
+def clear():
+    tim.clear()
+    tim.penup()
+    tim.home()
+    tim.pendown()
+
+
+actions = {'w': move_forward, 's': move_backward, 'a': turn_counter_clockwise, 'd': turn_clockwise,'c':clear}
 
 screen.listen()
 for action in actions:
